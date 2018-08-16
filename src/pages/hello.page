@@ -1,0 +1,7 @@
+<apex:page sidebar="false">
+<apex:form > 
+<apex:pageBlock title="Payout calculation">
+<apex:inputCheckbox />
+</apex:pageblock>
+</apex:form>
+ </apex:page>

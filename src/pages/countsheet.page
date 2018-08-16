@@ -1,0 +1,33 @@
+<apex:page standardStylesheets="false" showHeader="false" sidebar="false" standardController="Merchandise__c" recordSetVar="products">
+<apex:stylesheet value="{!URLFOR($Resource.Styles, 'styles.css')}"/>
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1>Inventory Count Sheet</h1>
+  
+<apex:form >  
+<apex:dataTable value="{!products}" var="Pitem" rowClasses="odd,even">  
+  <apex:column headerValue="Product">
+  <apex:outputText value="{!Pitem.name}">
+  </apex:outputText>   
+  </apex:column>
+ 
+ 
+  <apex:column headerValue="Inventory">
+   <apex:outputField value="{!Pitem.Total_inventory__c}"> 
+   </apex:outputField>
+  </apex:column>
+  
+    <apex:column headerValue="Physical Count">
+   <apex:inputField value="{!Pitem.Total_inventory__c}"> 
+   </apex:inputField>
+  </apex:column>
+ 
+  </apex:dataTable>
+  <br/>
+  <apex:commandButton action="{!quicksave}" value="Update Counts" />
+  <apex:commandLink action="{!next}" value="Next" rendered="{!hasNext}" />
+  </apex:form>
+  This is your new Page: new countsheet
+  
+  
+    <!-- End Default Content REMOVE THIS -->
+</apex:page>

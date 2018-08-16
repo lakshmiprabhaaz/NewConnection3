@@ -1,0 +1,20 @@
+<apex:page standardController="Merchandise__c">
+<apex:detail relatedList="false"/>
+<apex:pageBlock title="Custom Output">
+<apex:pageBlockSection title="Custom Section Title" >
+    <apex:outputfield value="{!Merchandise__c.name}"/>
+    <apex:outputfield value="{!Merchandise__c.Description__c}"/>
+    </apex:pageBlockSection>
+</apex:pageBlock>
+Hello {! $user.firstname}! 
+<p>You are viewing the {!Merchandise__c.Name} Merchandise.</p>
+<p> The Description is {!Merchandise__C.Description__C} </p>
+<p> The Price is {!Merchandise__C.Price__C} </p>
+
+<apex:pageBlock title="Merchandise list">
+<apex:pageblockTable value="{! Merchandise__C.Name}" var="Pname">
+<apex:column value="{! Pname}"/>
+</apex:pageblockTable>
+</apex:pageBlock>
+
+</apex:page>

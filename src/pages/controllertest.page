@@ -1,0 +1,61 @@
+<apex:page controller="New_Controller" tabstyle="Account" >
+<style>
+    .popupWindow1{
+             
+       position: fixed;
+       background-color: white;
+       border-width: 2px;
+       border-style: solid;
+       z-index: 9999;
+       left: 35%;
+       top: 35%;
+       padding:10px;
+       width:450px;
+       height:200px; 
+    }
+    </style>
+    <apex:form >
+        <apex:pageBlock mode="edit">
+            <apex:pageMessages />
+            <apex:pageBlockSection >
+                <apex:inputField value="{!Account.name}"/>
+                <apex:inputField value="{!Account.phone}"/>
+                <apex:inputField value="{!Account.industry}" />
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Submit to enter more fields" action="{!submit}" reRender="popupForFields"/>
+            </apex:pageBlockButtons>
+            
+            
+        </apex:pageBlock>
+        <apex:outputPanel id="popupForFields" styleClass="none">
+       
+                        
+                        <apex:outputPanel styleClass="popupWindow1" layout="block" rendered="{!popup}">
+                           
+                            <table cellspacing="10px" width="100%">
+                                <tr>
+                                    <td colspan="2" align="center"><apex:outputText style="font-size: 16px; font-weight: bold;" value="Please enter the values" /></td></tr>
+                                
+                                <tr><td>
+                                       Account&apos;s Website <apex:inputField value="{!Account.website}"/>
+                                    </td>
+                                        
+                                    <td>Account Site<apex:inputField value="{!Account.site}"/></td>
+                                    
+                                    
+                                </tr>
+                                <tr>
+                                <td>
+                                 <apex:commandButton action="{!save}" status="savethewindow" value="Save"/></td>
+                                 
+                                <td>
+                                <apex:commandButton action="{!close}" value="Close X" rerender="popupForFields"/>
+                                </td>
+                                </tr>
+                                
+                                </table>
+                        </apex:outputPanel>                    
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,32 @@
+<apex:page standardController="Merchandise__c" sidebar="false" showHeader="false" standardStylesheets="false" recordSetVar="product">
+<apex:stylesheet value="{! URLFOR($Resource.Styles, 'styles.css')}"/>
+<h2>Congratulations</h2>
+<br/>
+
+<apex:form >
+<apex:dataList value="{!product}" var="item" rows="1">
+<apex:inputField value="{! item.name}"/>
+<apex:commandButton value="Save" action="{!save}"/>
+</apex:dataList>
+</apex:form>
+
+
+<br/>
+<apex:dataTable value="{!product}" var="item" rowclasses="odd,even">  
+<apex:column value="{!item.name}"/>
+<apex:column value="{!item.Description__c}"/>
+</apex:dataTable>
+<li>  </li>
+
+
+<apex:dataList value="{!product}" var="item" >
+<apex:outputText value="{!item.name}" />
+</apex:dataList>
+<li>  </li>
+<ul>
+<apex:repeat value="{!product}" var="item">
+<li><apex:outputText value="{!item.name}" /></li>
+</apex:repeat>
+</ul>
+
+</apex:page>

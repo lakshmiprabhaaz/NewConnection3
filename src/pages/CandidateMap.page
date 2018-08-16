@@ -1,0 +1,4 @@
+<apex:page standardController="Position__c" >
+  Map for <b> {!Position__c.name}</b>
+  
+</apex:page>
